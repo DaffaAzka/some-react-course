@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaMapMarker } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const JobListing = ({ job }) => {
   const [showDescription, setShowDescription] = useState(false);
@@ -28,11 +29,11 @@ const JobListing = ({ job }) => {
 
         <p className="mt-1 text-purple-500 ">{job.salary} / Year</p>
         <p className="mt-1 text-blue-500 ">
-            <FaMapMarker className="inline" />
-            {job.location}
-            </p>
+          <FaMapMarker className="inline" />
+          {job.location}
+        </p>
         <button className="mt-2 py-2 px-3 w-full gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">
-          <a href={`/job/${job.id}`}>Read More</a>
+          <Link to={`/job/${job.id}`}>Read More</Link>
         </button>
       </div>
     </div>

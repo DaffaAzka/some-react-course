@@ -1,5 +1,6 @@
 import React from "react";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 const HomeCards = () => {
   return (
@@ -9,9 +10,9 @@ const HomeCards = () => {
         <p className="mt-2 text-gray-500">
           Browse our React Jobs and Start your career today
         </p>
-        <a
+        <Link
           className="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent text-blue-600 decoration-2 hover:text-blue-700 hover:underline focus:underline focus:outline-hidden focus:text-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-600 dark:focus:text-blue-600"
-          href="#">
+          to="#">
           Card link
           <svg
             className="shrink-0 size-4"
@@ -26,7 +27,7 @@ const HomeCards = () => {
             stroke-linejoin="round">
             <path d="m9 18 6-6-6-6"></path>
           </svg>
-        </a>
+        </Link>
       </Card>
 
       <Card bg="bg-indigo-100">
@@ -34,9 +35,9 @@ const HomeCards = () => {
         <p className="mt-2 text-gray-500">
           Browse our React Jobs and Start your career today
         </p>
-        <a
+        <Link
           className="mt-3 inline-flex items-center gap-x-1 text-sm font-semibold rounded-lg border border-transparent text-blue-600 decoration-2 hover:text-blue-700 hover:underline focus:underline focus:outline-hidden focus:text-blue-700 disabled:opacity-50 disabled:pointer-events-none dark:text-blue-500 dark:hover:text-blue-600 dark:focus:text-blue-600"
-          href="#">
+          to="#">
           Card link
           <svg
             className="shrink-0 size-4"
@@ -51,7 +52,7 @@ const HomeCards = () => {
             stroke-linejoin="round">
             <path d="m9 18 6-6-6-6"></path>
           </svg>
-        </a>
+        </Link>
       </Card>
     </>
   );
