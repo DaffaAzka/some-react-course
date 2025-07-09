@@ -1,9 +1,9 @@
-import { React, useEffect, useState} from "react";
-// import jobs from "../jobs.json";
+import { React, useEffect, useState } from "react";
 import JobListing from "./JobListing";
 import axios from "axios";
+import Spinner from "./Spinner";
 
-const JobListings = ({isHome = false}) => {
+const JobListings = ({ isHome = false }) => {
   // console.log(jobs);
   // const jobLists = isHome ? jobs.slice(0, 3) : jobs;
 
@@ -11,29 +11,34 @@ const JobListings = ({isHome = false}) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchJobs = async()=> {
+    const fetchJobs = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/jobs");
+        const response = await axios.get("/api/jobs");
         const jobData = isHome ? response.data.slice(0, 3) : response.data;
-        setJobs(jobData)
+        setJobs(jobData);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
-    }
+    };
 
     fetchJobs();
   }, [isHome]);
 
-
   return (
     <>
-      <div className="space-y-4 space-x-4 py-4 bg-gray-100 grid grid-cols-3">
-        {jobs .map((job) => (
-          <JobListing key={job.id} job={job} />
-        ))}
-      </div>
+      {loading ? (
+        <Spinner loading={loading} />
+      ) : (
+        <>
+          <div className="space-y-4 space-x-4 py-4 bg-gray-100 grid grid-cols-3">
+            {jobs.map((job) => (
+              <JobListing key={job.id} job={job} />
+            ))}
+          </div>
+        </>
+      )}
     </>
   );
 };
